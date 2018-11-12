@@ -15,13 +15,13 @@ class MakersBnB < Sinatra::Base
 
   post '/signup' do
     Bnb.sign_up(username: params[:username], password: params[:password])
-    redirect '/'
+    redirect '/pass'
   end
 
   post '/login' do
     result = Bnb.sign_in(si_username: params[:si_username], si_password: params[:si_password])
       if result == true
-        redirect '/'
+        redirect '/pass'
           elsif result == false
             redirect '/fail'
           end
@@ -29,5 +29,9 @@ class MakersBnB < Sinatra::Base
 
     get '/fail' do
       erb :fail
+    end
+
+    get '/pass' do
+      erb :pass
     end
 end
