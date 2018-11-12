@@ -1,4 +1,4 @@
 require 'shotgun'
-require_relative 'lib/app'
+require_relative 'app'
 run Sinatra::Application
 run MakersBnB

@@ -1,0 +1,28 @@
+<form method='post' action='/spaces/filter'>
+   <label>
+     Available from:
+     <input type="text" name="available_from" placeholder="Check In">
+   </label>
+   <label>
+     Available to:
+     <input type="text" name="available_to" placeholder="Check Out">
+   </label>
+   <button type="submit">Submit</button>
+ </form>
+
+ <ul>
+   <% @spaces.each do |space| %>
+   <li>
+
+     <h2> <%=space.name%> </h2>
+     <h3> <%=space.description%> </h3>
+     <h3> <%=space.price%> </h3>
+     <h3> <%=space.available_from.strftime("%-d %B %Y")%> </h3>
+     <h3> <%=space.available_to.strftime("%-d %B %Y")%> </h3>
+     <button type="submit" formmethod="post" formaction="#">More</button>
+
+
+   </li>
+   <% end %>
+
+ </ul>
