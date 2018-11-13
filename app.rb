@@ -27,6 +27,13 @@ class MakersBnB < Sinatra::Base
           end
       end
 
+    get '/space/new' do
+      erb :new
+    end
+    get '/space/availability' do
+        erb :availability
+    end
+
     get '/fail' do
       erb :fail
     end
@@ -34,4 +41,5 @@ class MakersBnB < Sinatra::Base
     get '/pass' do
       erb :pass
     end
+    run! if app_file == $0
 end
