@@ -6,4 +6,9 @@ class MakersBnB < Sinatra::Base
   get '/' do
     erb :index
   end
+
+  get '/booking' do
+    erb: booking
+  end
+
 end
