@@ -1,19 +1,21 @@
 require 'pg'
 
-class Bnb
+class Database
   def initialize
+    p "Bnb Initialize"
     @connection = PG.connect(dbname: 'makersbnb')
   end
 
-  def self.sign_up(username:, password:)
-    if new_user_available(username)
+  #Inserts the new user data into the tables
+  def sign_up(username:, password:)
+    if new_user_available(username: username)
       query = "INSERT INTO logins (username, password) VALUES('#{username}', '#{password}') RETURNING username, password;"
       @connection.exec(query)
     end
   end
 
   #returns true or false if the login is correct
-  def self.sign_in(si_username:, si_password:)
+  def sign_in(si_username:, si_password:)
     query = "SELECT username FROM logins WHERE username = '#{si_username}' AND password = '#{si_password}';"
     result = @connection.exec(query)
     if result.map { |logins| logins['username']} == [si_username]
@@ -24,7 +26,7 @@ class Bnb
   end
 
   #returns true or false if a user login is avaliable
-  def self.new_user_available(username:)
+  def new_user_available(username:)
     result = @connection.exec("SELECT * FROM logins WHERE username='#{username}';")
     if result.num_tuples.zero?
       true

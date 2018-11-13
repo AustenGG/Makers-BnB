@@ -1,6 +1,8 @@
 require 'sinatra/base'
 require 'pg'
-require './lib/bnb'
+require_relative 'lib/bnb'
+
+$db = Database.new
 
 class MakersBnB < Sinatra::Base
   enable :sessions, :method_override
@@ -14,24 +16,24 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/signup' do
-    Bnb.sign_up(username: params[:username], password: params[:password])
+    $db.sign_up(username: params[:username], password: params[:password])
     redirect '/pass'
   end
 
   post '/login' do
-    result = Bnb.sign_in(si_username: params[:si_username], si_password: params[:si_password])
-      if result == true
-        redirect '/pass'
-          elsif result == false
-            redirect '/fail'
-          end
-      end
-
-    get '/fail' do
-      erb :fail
+    result = $db.sign_in(si_username: params[:si_username], si_password: params[:si_password])
+    if result == true
+      redirect '/pass'
+    elsif result == false
+      redirect '/fail'
     end
+  end
 
-    get '/pass' do
-      erb :pass
-    end
+  get '/fail' do
+    erb :fail
+  end
+
+  get '/pass' do
+    erb :pass
+  end
 end
