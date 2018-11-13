@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
-ruby '2.3.3'
+ruby '2.5.1'
 
 gem 'capybara'
+gem 'postgres'
 gem 'rake'
 gem 'rubocop', '0.56.0'
 gem 'shotgun'
