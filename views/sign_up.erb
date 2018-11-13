@@ -10,19 +10,19 @@
   </style>
 
 
-  <form action="/login" method="post">
   <center>
     <h1> Welcome to Makers-BnB! </h1>
     <h2> Sign in: </h2>
-    <input type="text" name="si_username" placeholder="username" />
-    <input type="password" name="si_password" placeholder="password" />
+    <form action="/login" method="post">
+    <input type="text" name="useremail" placeholder="username" />
+    <input type="password" name="password" placeholder="password" />
     <input type="submit" value="Submit" /> </center>
     </form>
 
     <center>
     <h2> Sign up: </h2>
     <form action="/signup" method="post">
-    <input type="text" name="username" placeholder="username" />
+    <input type="text" name="useremail" placeholder="username" />
     <input type="password" name="password" placeholder="password" />
     <input type="submit" value="Submit" /> </center>
   </form>

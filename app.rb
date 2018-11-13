@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require 'pg'
-require_relative 'lib/bnb'
+require_relative 'lib/databaseController'
 
 $db = Database.new
 
@@ -16,15 +16,18 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/signup' do
-    $db.sign_up(username: params[:username], password: params[:password])
-    redirect '/pass'
+    $db.sign_up(params[:useremail], params[:password])
+    redirect '/signup'
   end
 
   post '/login' do
-    result = $db.sign_in(si_username: params[:si_username], si_password: params[:si_password])
-    if result == true
+    if $db.verifyLogin(params[:useremail], params[:password])
+      session.clear
+      userData = $db.getUserData(params[:useremail])[0]
+      session[:user_id] = userData["userid"]
+      session[:user_email] = userData["useremail"]
       redirect '/pass'
-    elsif result == false
+    else
       redirect '/fail'
     end
   end
@@ -34,6 +37,25 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/pass' do
-    erb :pass
+    if current_user
+      erb :pass
+    end
+  end
+
+  helpers do
+    def current_user
+      if session[:user_id] != nil
+        if $db.DoesUserExist(session[:user_id], session[:user_email])
+          p "#{session[:user_email]} : Still logged in!"
+        else
+          session.clear
+          redirect '/fail'
+          false
+        end
+      else
+        redirect '/fail'
+        false
+      end
+    end
   end
 end
