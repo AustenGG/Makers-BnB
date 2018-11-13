@@ -37,7 +37,7 @@ require 'pg'
 @db = PG.connect(dbname: 'makersbnb')
 
 #Creates table users
-@db.exec("CREATE TABLE USERS(UserID SERIAL PRIMARY KEY, username VARCHAR(60), password VARCHAR(60));")
+@db.exec("CREATE TABLE USERS(UserID SERIAL PRIMARY KEY, useremail VARCHAR(60), password VARCHAR(60));")
 #Creates table locations
 @db.exec("CREATE TABLE LOCATIONS(LocationID SERIAL PRIMARY KEY, OwnerID int, Address VARCHAR(255), Availability int, FOREIGN KEY (OwnerID) REFERENCES Users(UserID));")
 #Creates table bookings
