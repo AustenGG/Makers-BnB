@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require 'pg'
-require_relative 'lib/bnb'
+require_relative 'lib/databaseController'
 
 $db = Database.new
 
@@ -27,6 +27,10 @@ class MakersBnB < Sinatra::Base
     elsif result == false
       redirect '/fail'
     end
+  end
+
+  get '/space' do
+    erb :space
   end
 
   get '/fail' do
