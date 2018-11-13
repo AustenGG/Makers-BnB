@@ -1,38 +1,37 @@
-ENV["RACK_ENV"] ||= "development"
-
-
 require 'sinatra/base'
-#require_relative 'models/space'
+require 'pg'
+require './lib/bnb'
 
 class MakersBnB < Sinatra::Base
-  enable :sessions
-  set :session_secret, 'super secret'
+  enable :sessions, :method_override
+
   get '/' do
-    'Hello BnB'
-  end
-  get '/spaces' do
-    @spaces = Space.all
-    erb :'spaces/availability'
+    erb :index
   end
 
-  get '/spaces/new' do
-     erb :'spaces/new'
+  get '/signup' do
+    erb :sign_up
   end
 
-  post '/spaces' do
-    redirect '/spaces'
-  end
-  post '/spaces/filter' do
-       Space.create(name: params[:name],
-           description: params[:description],
-           price: params[:price],
-           available_from: params[:available_from],
-           available_to: params[:available_to])
-       redirect '/spaces'
+  post '/signup' do
+    Bnb.sign_up(username: params[:username], password: params[:password])
+    redirect '/pass'
   end
 
+  post '/login' do
+    result = Bnb.sign_in(si_username: params[:si_username], si_password: params[:si_password])
+      if result == true
+        redirect '/pass'
+          elsif result == false
+            redirect '/fail'
+          end
+      end
 
+    get '/fail' do
+      erb :fail
+    end
 
-
- run! if app_file == $0
+    get '/pass' do
+      erb :pass
+    end
 end
