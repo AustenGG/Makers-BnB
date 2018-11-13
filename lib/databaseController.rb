@@ -1,6 +1,6 @@
 require 'pg'
 
-class Bnb
+class Database
   def initialize
     p "Bnb Initialize"
     @connection = PG.connect(dbname: 'makersbnb')
