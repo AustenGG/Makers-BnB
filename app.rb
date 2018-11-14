@@ -15,6 +15,10 @@ class MakersBnB < Sinatra::Base
     erb :sign_up
   end
 
+  get '/signin' do
+    erb :sign_in
+  end
+
   post '/signup' do
     $db.sign_up(params[:useremail], params[:password])
     redirect '/signup'
