@@ -142,3 +142,61 @@ body {
   text-align: center;
 }
 /* Kwame CSS END */
+
+/* Omar CSS START */
+
+.edit {
+  border: none;
+  background-color: orange;
+  color: white;
+  font: inherit;
+}
+
+.delete {
+  border: none;
+  background-color: red;
+  color: white;
+  margin-left: 2px;
+  margin-right: 5px;
+  font: inherit;
+}
+
+.sub {
+  text-align: center;
+  color: blue;
+  font-weight: bold;
+}
+
+.users {
+  border: 1px;
+  max-width: 900px;
+  border-bottom: 6px solid #4267b2;
+  background-color: #3966b840;
+  padding-bottom: 25px;
+  margin-top: 10px;
+}
+
+.users p{
+  text-align: center;
+}
+
+.users input{
+  float: right;
+}
+
+.accept {
+  border: none;
+  background-color: green;
+  color: white;
+  font: inherit;
+}
+
+.decline {
+  border: none;
+  background-color: red;
+  color: white;
+  margin-left: 2px;
+  margin-right: 5px;
+  font: inherit;
+}
+/* Omar CSS END */
