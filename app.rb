@@ -44,6 +44,10 @@ class MakersBnB < Sinatra::Base
     end
 
     get '/spaces/new/booking' do
+      redirect '/purchase'
+    end
+
+    get '/purchase' do
       erb :payment
     end
 
