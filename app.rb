@@ -48,6 +48,9 @@ class MakersBnB < Sinatra::Base
     redirect '/'
   end
 
+  get '/spaces' do
+    erb :space
+  end
 
   get '/fail' do
     erb :fail
