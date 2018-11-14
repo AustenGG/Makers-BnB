@@ -42,6 +42,15 @@ class MakersBnB < Sinatra::Base
     end
   end
 
+  post '/new' do
+    address = "#{params[:adr1]},#{params[:adr2]},#{params[:adr3]},#{params[:postcode]}"
+    if $db.createLocation(session[:user_id], params[:name], params[:desc], params[:ppn], address)
+      redirect '/user_portal'
+    else
+      erb :fail_new
+    end
+  end
+
   get '/availability' do
     erb :availability, :layout => :layout_user
   end
