@@ -36,11 +36,11 @@ class MakersBnB < Sinatra::Base
       end
   end
 
-    get '/spaces/new' do
+    get '/new' do
       erb :new
     end
-    get '/spaces/availability' do
-        erb :availability
+    get '/availability' do
+        erb :availability, :layout => :layout_user
     end
 
   post '/logout' do
@@ -48,9 +48,6 @@ class MakersBnB < Sinatra::Base
     redirect '/'
   end
 
-  get '/space' do
-    erb :space
-  end
 
   get '/fail' do
     erb :fail

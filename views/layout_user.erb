@@ -10,9 +10,11 @@
 <body>
   <div class="topnav">
     <a href="/">Home</a>
-     <a href="/signup">Login</a>
-     <a href="#">Post a space</a>
-     <a href="#">Buy a space</a>
+     <a href="/new">Post a space</a>
+     <a href="/availability">Buy a space</a>
+    <form action="/logout" method="post">
+      <input type='submit' value='Log Out'>
+    </form>
   </div>
   <%= yield %>
   <div class="footer">
