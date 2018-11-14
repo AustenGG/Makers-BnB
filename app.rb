@@ -29,8 +29,15 @@ class MakersBnB < Sinatra::Base
       redirect '/pass'
     else
       redirect '/fail'
-    end
+      end
   end
+
+    get '/spaces/new' do
+      erb :new
+    end
+    get '/spaces/availability' do
+        erb :availability
+    end
 
   post '/logout' do
     session.clear
@@ -51,6 +58,13 @@ class MakersBnB < Sinatra::Base
     end
   end
 
+  get '/examplePrivatePage' do
+    if current_user
+      #CODE ON THE PRIVATE PAGE
+      #erb :egPrivPage
+    end
+  end
+
   helpers do
     def current_user
       if session[:user_id] != nil
@@ -68,4 +82,5 @@ class MakersBnB < Sinatra::Base
       end
     end
   end
+  run! if app_file == $0
 end
