@@ -11,10 +11,11 @@ class MakersBnB < Sinatra::Base
     erb :booking
   end
 
-  post '/booking' do
-
+  get '/user-portal' do
+    erb :user_portal
   end
 
+  post '/user-portal' do
+    
   run! if app_file == $0
-  end
 end
