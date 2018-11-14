@@ -33,12 +33,12 @@ class MakersBnB < Sinatra::Base
       redirect '/pass'
     else
       redirect '/fail'
-      end
+    end
   end
 
   get '/new' do
     if current_user
-      erb :new
+      erb :new, :layout => :layout_user
     end
   end
 
@@ -66,8 +66,12 @@ class MakersBnB < Sinatra::Base
 
   get '/pass' do
     if current_user
-      erb :pass
+      erb :pass, :layout => :layout_user
     end
+  end
+
+  get '/spaces/new/booking' do
+    erb :payments
   end
 
   get '/examplePrivatePage' do
@@ -94,5 +98,18 @@ class MakersBnB < Sinatra::Base
       end
     end
   end
+
+  get '/booking' do
+    erb :booking, :layout => :layout_user
+  end
+
+  get '/user_portal' do
+    erb :user_portal, :layout => :layout_user
+  end
+
+  post '/user_portal' do
+    erb :user_portal, :layout => :layout_user
+  end
+
   run! if app_file == $0
 end
