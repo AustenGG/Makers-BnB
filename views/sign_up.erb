@@ -1,28 +1,33 @@
-<style>
-  h1 {
-      color: #ff1a1a;
-      font-family: arial;
-  }
-  h2 {
-      color: #ff1a1a;
-      font-family: arial;
-  }
-  </style>
-
-
-  <form action="/login" method="post">
-  <center>
-    <h1> Welcome to Makers-BnB! </h1>
+<div class="header">
+  <h1>Makers-BnB</h1>
+  <p>Book your space here!</p>
+</div>
+<div class="row">
+  <div class="column side">
+    <h2>Side</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
+  </div>
+  <div class="column middle">
+    <center>
     <h2> Sign in: </h2>
-    <input type="text" name="si_username" placeholder="username" />
-    <input type="password" name="si_password" placeholder="password" />
+    <form action="/login" method="post">
+    <input type="text" name="useremail" placeholder="username" />
+    <input type="password" name="password" placeholder="password" />
     <input type="submit" value="Submit" /> </center>
     </form>
 
     <center>
-    <h2> Sign up: </h2>
+    <h2> Create Account: </h2>
     <form action="/signup" method="post">
-    <input type="text" name="username" placeholder="username" />
+    <input type="text" name="useremail" placeholder="username" />
     <input type="password" name="password" placeholder="password" />
-    <input type="submit" value="Submit" /> </center>
-  </form>
+    <input type="submit" value="Submit" /> 
+    </form>
+    </center>
+  </div>
+
+  <div class="column side">
+    <h2>Side</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
+  </div>
+</div>
