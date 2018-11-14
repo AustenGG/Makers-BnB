@@ -18,6 +18,8 @@ class Booking
     else
       connection = PG.connect(dbname: 'makersbnb')
     end
+  end
+
     result = connection.exec('SELECT Location FROM bookings')
     result.map { |bookings| bookings['Location'] }
   end

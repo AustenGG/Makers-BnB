@@ -6,7 +6,7 @@ feature 'new booking' do
     visit('/booking')
     fill_in('Bookings Date', with: '11/09/19')
     fill_in('Bookings Location', with: 'Birmingham')
-    click_button('Sign up Submit')
+    click_button('Submit')
 
     expect(Booking.date_list).to include '11/09/19'
     expect(Booking.location_list).to include 'Birmingham'
