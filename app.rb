@@ -43,6 +43,10 @@ class MakersBnB < Sinatra::Base
         erb :availability
     end
 
+    get '/spaces/new/booking' do
+      erb :payment
+    end
+
   post '/logout' do
     session.clear
     redirect '/'
@@ -61,6 +65,7 @@ class MakersBnB < Sinatra::Base
       erb :pass
     end
   end
+
 
   get '/examplePrivatePage' do
     if current_user
