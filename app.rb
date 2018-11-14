@@ -32,6 +32,11 @@ class MakersBnB < Sinatra::Base
     end
   end
 
+  post '/logout' do
+    session.clear
+    redirect '/'
+  end
+
   get '/space' do
     erb :space
   end
@@ -57,6 +62,7 @@ class MakersBnB < Sinatra::Base
           false
         end
       else
+        session.clear
         redirect '/fail'
         false
       end
