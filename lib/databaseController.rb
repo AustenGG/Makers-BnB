@@ -30,6 +30,25 @@ class Database
     end
   end
 
+  def createLocation(userid, locName, locDesc, locPPN, locAddress)
+    if isNewLocationAvailiable(locName, locDesc, locAddress)
+      query = "INSERT INTO locations (ownerid, address, name, description, pricepernight, availability) VALUES('#{userid}','#{locAddress}','#{locName}','#{locDesc}','#{locPPN}', '0')"
+      @connection.exec(query)
+      true
+    else
+      false
+    end
+  end
+
+  def isNewLocationAvailiable(locName, locDesc, locAddress)
+    result = @connection.exec("SELECT * FROM Locations WHERE name='#{locName}' AND description='#{locDesc}' AND address='#{locAddress}';")
+    if result.num_tuples.zero?
+      true
+    else
+      false
+    end
+  end
+
   #Inserts the new user data into the tables
   def sign_up(useremail, password)
     if new_user_available(useremail)
