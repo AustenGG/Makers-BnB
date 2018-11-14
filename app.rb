@@ -8,7 +8,7 @@ class MakersBnB < Sinatra::Base
   enable :sessions, :method_override
 
   get '/' do
-    erb :sign_up
+    erb :index
   end
 
   get '/signup' do
@@ -48,6 +48,13 @@ class MakersBnB < Sinatra::Base
   get '/pass' do
     if current_user
       erb :pass
+    end
+  end
+
+  get '/examplePrivatePage' do
+    if current_user
+      #CODE ON THE PRIVATE PAGE
+      #erb :egPrivPage
     end
   end
 
