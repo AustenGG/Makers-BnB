@@ -21,7 +21,7 @@ class MakersBnB < Sinatra::Base
 
   post '/signup' do
     $db.sign_up(params[:useremail], params[:password])
-    redirect '/signup'
+    redirect '/signin'
   end
 
   post '/login' do
@@ -36,20 +36,19 @@ class MakersBnB < Sinatra::Base
       end
   end
 
-    get '/new' do
+  get '/new' do
+    if current_user
       erb :new
     end
-    get '/availability' do
-        erb :availability, :layout => :layout_user
-    end
+  end
+
+  get '/availability' do
+    erb :availability, :layout => :layout_user
+  end
 
   post '/logout' do
     session.clear
     redirect '/'
-  end
-
-  get '/spaces' do
-    erb :space
   end
 
   get '/fail' do
