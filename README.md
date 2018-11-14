@@ -12,7 +12,7 @@ Id like to be able to signup
 
 As a user so that I can rent out a space
 To another user
-If like to be able to list a new space
+Id like to be able to list a new space
 
 
 As user so that I can rent out the apartment

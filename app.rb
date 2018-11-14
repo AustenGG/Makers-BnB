@@ -8,7 +8,7 @@ class MakersBnB < Sinatra::Base
   enable :sessions, :method_override
 
   get '/' do
-    erb :index
+    erb :sign_up
   end
 
   get '/signup' do
@@ -29,8 +29,19 @@ class MakersBnB < Sinatra::Base
       redirect '/pass'
     else
       redirect '/fail'
-    end
+      end
   end
+
+    get '/spaces/new' do
+      erb :new
+    end
+    get '/spaces/availability' do
+        erb :availability
+    end
+
+    get '/fail' do
+      erb :fail
+    
 
   post '/logout' do
     session.clear
@@ -75,4 +86,5 @@ class MakersBnB < Sinatra::Base
       end
     end
   end
+  run! if app_file == $0
 end
