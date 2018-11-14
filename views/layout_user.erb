@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <meta charset="UTF-8">
+  <!-- <link rel="stylesheet" type="text/scss" href="style/theme.scss"> -->
+  <link rel="stylesheet" type="text/css" href="styles/theme.css">
+</head>
+<body>
+  <div class="topnav">
+     <a href="/user_portal">User portal</a>
+     <a href="/new">Post a space</a>
+     <a href="/availability">Buy a space</a>
+    <form action="/logout" method="post">
+      <input type='submit' value='Log Out'>
+    </form>
+  </div>
+  <%= yield %>
+  <div class="footer">
+  <p>&copy; 2017 - 2018 The Second Best Team 😎 All Rights Reserved</p>
+ </div>
+</body>
+</html>

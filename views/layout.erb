@@ -1,103 +1,97 @@
 <!DOCTYPE html>
-  <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="theme.css">
-  </head>
-  <body>
-    <div class="topnav">
-      <a href="/">Home</a>
-      <a href="/signup">Login</a>
-      <a href="/spaces/new">Post a space</a>
-      <a href="/spaces/availability">Buy a space</a>
-      <form class="" method='post' action='/logout'>
-        <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='Log Out'>
-      </form>
-      <style>
-      body {
-         margin: 0;
-         background: ;
-       }
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <meta charset="UTF-8">
+  <!-- <link rel="stylesheet" type="text/scss" href="style/theme.scss"> -->
+  <link rel="stylesheet" type="text/css" href="styles/theme.css">
+</head>
+<body>
+  <div class="topnav">
+    <a href="/">Home</a>
+     <a href="/signup">Sign up</a>
+     <a href="/signin">Sign in</a>
+  </div>
+  <%= yield %>
+  <div class="footer">
+  <p>&copy; 2017 - 2018 The Second Best Team 😎 All Rights Reserved</p>
+ </div>
+ <style>
+ body {
+    margin: 0;
+    background: ;
+  }
 
-       /* Style the header */
-       .header {
-           background-color: #4267b2;
-           padding: 20px;
-           text-align: center;
-           font-family: arial;
-           color: white;
-       }
+  /* Style the header */
+  .header {
+      background-color: #4267b2;
+      padding: 20px;
+      text-align: center;
+      font-family: arial;
+      color: white;
+  }
 
-       /* Style the top navigation bar */
-       .topnav {
-           overflow: hidden;
-           background-color: #333;
-           font-family: arial;
-           text-align: center;
+  /* Style the top navigation bar */
+  .topnav {
+      overflow: hidden;
+      background-color: #333;
+      font-family: arial;
+      text-align: center;
 
-       }
+  }
 
-       /* Style the topnav links */
-       .topnav a {
-           float: left;
-           display: block;
-           color: #f2f2f2;
-           text-align: center;
-           padding: 14px 16px;
-           text-decoration: none;
-       }
+  /* Style the topnav links */
+  .topnav a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+  }
 
-       /* Change color on hover */
-       .topnav a:hover {
-           background-color: #ddd;
-           color: black;
-       }
+  /* Change color on hover */
+  .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+  }
 
-       /* Create three unequal columns that floats next to each other */
-       .column {
-           float: left;
-           padding: 10px;
-           font-family: arial;
+  /* Create three unequal columns that floats next to each other */
+  .column {
+      float: left;
+      padding: 10px;
+      font-family: arial;
 
-       }
+  }
 
-       /* Left and right column */
-       .column.side {
-           width: 25%;
-           font-family: arial;
+  /* Left and right column */
+  .column.side {
+      width: 25%;
+      font-family: arial;
 
-       }
+  }
 
-       /* Middle column */
-       .column.middle {
-           width: 50%;
-           font-family: arial;
-       }
+  /* Middle column */
+  .column.middle {
+      width: 50%;
+      font-family: arial;
+  }
 
-       /* Clear floats after the columns */
-       .row:after {
-           content: "";
-           display: table;
-           clear: both;
+  /* Clear floats after the columns */
+  .row:after {
+      content: "";
+      display: table;
+      clear: both;
 
-       }
+  }
 
-       /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-       @media screen and (max-width: 600px) {
-           .column.side, .column.middle {
-               width: 100%;
-           }
-       }
-     </style>
-
-    </div>
-    <%= yield %>
-
-    <div class="footer">
-      <p>&copy; 2017 - 2018 The Second Best Team 😎 All Rights Reserved</p>
-    </div>
-  </body>
-  </html>
+  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+      .column.side, .column.middle {
+          width: 100%;
+      }
+  }
+</style>
+</body>
+</html>
