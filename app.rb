@@ -27,10 +27,10 @@ class MakersBnB < Sinatra::Base
           end
       end
 
-    get '/space/new' do
+    get '/spaces/new' do
       erb :new
     end
-    get '/space/availability' do
+    get '/spaces/availability' do
         erb :availability
     end
 
