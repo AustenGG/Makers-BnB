@@ -58,6 +58,10 @@ class MakersBnB < Sinatra::Base
     end
   end
 
+  get '/spaces/new/booking' do
+    erb :payments
+  end
+
   get '/examplePrivatePage' do
     if current_user
       #CODE ON THE PRIVATE PAGE
