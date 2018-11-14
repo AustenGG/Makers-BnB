@@ -33,15 +33,15 @@ class MakersBnB < Sinatra::Base
       redirect '/pass'
     else
       redirect '/fail'
-      end
+    end
   end
 
-    get '/new' do
-      erb :new
-    end
-    get '/availability' do
-        erb :availability, :layout => :layout_user
-    end
+  get '/new' do
+    erb :new, :layout => :layout_user
+  end
+  get '/availability' do
+    erb :availability, :layout => :layout_user
+  end
 
   post '/logout' do
     session.clear
@@ -54,7 +54,7 @@ class MakersBnB < Sinatra::Base
 
   get '/pass' do
     if current_user
-      erb :pass
+      erb :pass, :layout => :layout_user
     end
   end
 
