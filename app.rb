@@ -39,10 +39,6 @@ class MakersBnB < Sinatra::Base
         erb :availability
     end
 
-    get '/fail' do
-      erb :fail
-    
-
   post '/logout' do
     session.clear
     redirect '/'
