@@ -39,6 +39,6 @@ require 'pg'
 #Creates table users
 @db.exec("CREATE TABLE USERS(UserID SERIAL PRIMARY KEY, useremail VARCHAR(60), password VARCHAR(60));")
 #Creates table locations
-@db.exec("CREATE TABLE LOCATIONS(LocationID SERIAL PRIMARY KEY, OwnerID int, Address VARCHAR(255), Availability int, FOREIGN KEY (OwnerID) REFERENCES Users(UserID));")
+@db.exec("CREATE TABLE LOCATIONS(LocationID SERIAL PRIMARY KEY, OwnerID int, Address VARCHAR(255), Name VARCHAR(255), Description VARCHAR(511), PricePerNight MONEY, Availability int, FOREIGN KEY (OwnerID) REFERENCES Users(UserID));")
 #Creates table bookings
 @db.exec("CREATE TABLE BOOKINGS(BookingID SERIAL PRIMARY KEY, LodgerID int, LocationID int, StartDate DATE, EndDate DATE, FOREIGN KEY (LodgerID) REFERENCES USERS(UserID), FOREIGN KEY (LocationID) REFERENCES LOCATIONS(LocationID));")
