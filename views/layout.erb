@@ -12,15 +12,13 @@
     <a href="/signup">Login</a>
     <a href="/space/new">Post a space</a>
     <a href="/space">Buy a space</a>
-    <form action="/logout" method="post">
+    <form class="" method='post' action='/logout'>
       <input type='hidden' name='_method' value='delete'>
       <input type='submit' value='Log Out'>
     </form>
   </div>
   <%= yield %>
 
-  <div class="footer">
-    <p>&copy; 2017 - 2018 The Second Best Team 😎 All Rights Reserved</p>
-  </div>
+  
 </body>
 </html>
