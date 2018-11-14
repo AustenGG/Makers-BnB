@@ -48,10 +48,6 @@ class MakersBnB < Sinatra::Base
     redirect '/'
   end
 
-  get '/spaces' do
-    erb :space
-  end
-
   get '/fail' do
     erb :fail
   end
@@ -86,19 +82,18 @@ class MakersBnB < Sinatra::Base
       end
     end
   end
-<<<<<<< HEAD
 
   get '/booking' do
-    erb :booking
+    erb :booking, :layout => :layout_user
   end
 
-  get '/user-portal' do
-    erb :user_portal
+  get '/user_portal' do
+    erb :user_portal, :layout => :layout_user
   end
 
-  post '/user-portal' do
-    
-=======
->>>>>>> 8aa176a325974703f9a3fd81dceb0ae62de876c6
+  post '/user_portal' do
+    erb :user_portal, :layout => :layout_user
+  end
+
   run! if app_file == $0
 end
