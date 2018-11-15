@@ -57,7 +57,11 @@ class MakersBnB < Sinatra::Base
     else
       @rooms = $db.getAllRooms(session[:startdate], session[:enddate])
     end
-    erb :availability, :layout => :layout_user
+    if current_user_no_redirect
+      erb :availability, :layout => :layout_user
+    else
+      erb :availability
+    end
   end
 
   post '/availability' do
@@ -105,6 +109,17 @@ class MakersBnB < Sinatra::Base
       else
         session.clear
         redirect '/fail'
+        false
+      end
+    end
+    def current_user_no_redirect
+      if session[:user_id] != nil
+        if $db.DoesUserExist(session[:user_id], session[:user_email])
+          p "#{session[:user_email]} : Still logged in!"
+        else
+          false
+        end
+      else
         false
       end
     end
