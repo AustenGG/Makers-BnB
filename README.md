@@ -21,13 +21,13 @@ We would like a web application that allows users to list spaces they have avail
 Create a web application that allows people to rent their spaces, cos they want more money. I mean who doesn't want more money?
 
 ## Makers requirements
-*Any signed-up user can list a new space.
-*Users can list multiple spaces.
-*Users should be able to name their space, provide a short description of the space, and a price per night.
-*Users should be able to offer a range of dates where their space is available.
-*Any signed-up user can request to hire any space for one night, and this should be approved by the user that owns that space.
-*Nights for which a space has already been booked should not be available for users to book that space.
-*Until a user has confirmed a booking request, that space can still be booked for that night.
+* Any signed-up user can list a new space.
+* Users can list multiple spaces.
+* Users should be able to name their space, provide a short description of the space, and a price per night.
+* Users should be able to offer a range of dates where their space is available.
+* Any signed-up user can request to hire any space for one night, and this should be approved by the user that owns that space.
+* Nights for which a space has already been booked should not be available for users to book that space.
+* Until a user has confirmed a booking request, that space can still be booked for that night.
 
 #### User story
 ```
@@ -60,14 +60,14 @@ I want a booking to be available until confirmed.
 ```
 
 ## <a name="functionality">Functionality</a>
-*User can sign up
-*User can login to exisiting account
-*User can sign out of their account
-*User can book a space
-*User can list a new space to be booked, by others
-*User can accept & decline booking request on their listing
-*User can delete or edit their listing
-*User can filter by date to see availability on rooms
+* User can sign up
+* User can login to exisiting account
+* User can sign out of their account
+* User can book a space
+* User can list a new space to be booked, by others
+* User can accept & decline booking request on their listing
+* User can delete or edit their listing
+* User can filter by date to see availability on rooms
 
 ## <a name="install">Installation</a>
 
