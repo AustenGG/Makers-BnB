@@ -1,6 +1,6 @@
 # Makers BnB
 
-## An thing made in Ruby.
+We would like a web application that allows users to list spaces they have available, and to hire spaces for the night.
 
 ## Technologies
 * [Ruby v2.5.1](https://www.ruby-lang.org/en/)
