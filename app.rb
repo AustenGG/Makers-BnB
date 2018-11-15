@@ -8,7 +8,7 @@ class MakersBnB < Sinatra::Base
   enable :sessions, :method_override
 
   get '/' do
-    erb :homepage
+    erb :index, :layout => :layout
   end
 
   get '/signup' do
@@ -85,8 +85,8 @@ class MakersBnB < Sinatra::Base
     end
   end
 
-  get '/spaces/new/booking' do
-    erb :payments
+  get '/payments' do
+    erb :payments, :layout => :layout_user
   end
 
   get '/examplePrivatePage' do

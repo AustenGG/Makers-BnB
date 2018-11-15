@@ -1,9 +1,7 @@
 <div class="header">
-   <h1>Makers-BnB</h1>
-   <p>View Available spaces here!</p>
- </div>
-
-
+  <h1>Makers-BnB</h1>
+  <p>View Available spaces here!</p>
+</div>
 
  <div class="space-content">
   <form class="space-form" action="/availability" method="post">
@@ -20,11 +18,9 @@
      <p class="">Location: <%= data["address"]%></p>
      <p class="">Price per night: <%= data["pricepernight"]%></p>
      <p class="">Description: <%= data["description"]%></p>
-     <form action="/spaces/new">
-
+     <form action="/payments">
      <input type="submit" name="book" value="Book space">
      </form>
       </div>
       <% end %>
-
- </div>
+</div>
