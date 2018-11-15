@@ -8,7 +8,7 @@ class MakersBnB < Sinatra::Base
   enable :sessions, :method_override
 
   get '/' do
-    erb :index
+    erb :homepage
   end
 
   get '/signup' do
