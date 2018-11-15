@@ -114,12 +114,9 @@ body {
    max-width: 900px;
    border-bottom: 6px solid #4267b2;
    background-color: #3966b840;
-   padding-bottom: 20px;
+   padding-bottom: 25px;
+   padding-top: 10px;
    margin-top: 10px;
- }
-
- .space-list p{
-   text-align: center;
  }
 
  .space-list input{
@@ -141,4 +138,72 @@ body {
   color: white;
   text-align: center;
 }
+
+.users-inner{
+  width: 500px;
+  margin: 0 auto;
+}
+
+.users-inner p{
+  text-align: left;
+}
 /* Kwame CSS END */
+
+/* Omar CSS START */
+
+.edit {
+  border: none;
+  background-color: orange;
+  color: white;
+  font: inherit;
+}
+
+.delete {
+  border: none;
+  background-color: red;
+  color: white;
+  margin-left: 2px;
+  margin-right: 5px;
+  font: inherit;
+}
+
+.sub {
+  text-align: center;
+  color: blue;
+  font-weight: bold;
+}
+
+.users {
+  border: 1px;
+  max-width: 900px;
+  border-bottom: 6px solid #4267b2;
+  background-color: #3966b840;
+  padding-bottom: 25px;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+/* .users p{
+  text-align: center;
+} */
+
+.users input{
+  float: right;
+}
+
+.accept {
+  border: none;
+  background-color: green;
+  color: white;
+  font: inherit;
+  margin-left: 2px;
+  margin-right: 5px;
+}
+
+.decline {
+  border: none;
+  background-color: red;
+  color: white;
+  font: inherit;
+}
+/* Omar CSS END */
