@@ -4,57 +4,39 @@
 </div>
 
 <div class="space-content">
-  <h2 class="sub">Current bookings</h2>
+
+  <%if !(@currentbookings.num_tuples.zero?)%>
+  <h2 class="sub">Your locations bookings</h2>
+  <%end%>
+  <% @currentbookings.each do |data| %>
   <div class="users">
     <div class="users-inner">
-      <h3 class="space-title">Harry potters house</h3>
-      <p>Posted by: Harry Potter</p>
-      <p>Location: Hogwarts </p>
-      <p>Price per night: £100</p>
-      <p>Description: It's a famous place so book it</p>
+      <h3 class="space-title"><%= data["name"]%></h3>
+      <p>Guests email: <%= data["useremail"]%></p>
+      <p>Address: <%= data["address"]%> </p>
+      <p>Price per night: <%= data["pricepernight"]%></p>
+      <p>Dates: <%= data["startdate"]%> / <%= data["enddate"]%></p>
     </div>
+    <!-- FOR NOW YOU CANNOT CANCEL A BOOKING
     <form action="/user_portal" method="post">
       <input type="hidden" name="_method" value="delete" />
       <input class="delete" type="submit" name="Delete" value="Delete booking">
     </form>
+    -->
   </div>
+  <% end %>
 
-  <h2 class="sub">Current spaces listed</h2>
-  <div class="users">
-    <div class="users-inner">
-      <h3 class="space-title">Harry potters house</h3>
-      <p>Posted by: Harry Potter</p>
-      <p>Location: Hogwarts </p>
-      <p>Price per night: £100</p>
-      <p>Description: It's a famous place so book it</p>
-    </div>
-    <form action="/user_portal" method="post">
-      <input type="hidden" name="_method" value="delete" />
-      <input class="delete" type="submit" name="Delete" value="Delete space">
-    </form>
-    <form action="#" method="get">
-      <input type="hidden" name="_method" value="patch" />
-      <input class="edit" type="submit" name="Edit" value="Edit space">
-    </form>
+  <%if !(@userslistings.num_tuples.zero?)%>
+  <h2 class="sub">Your location listings</h2>
+  <%end%>
+  <% @userslistings.each do |data|%>
+  <div class="space-list">
+    <h3 class="space-title"><%= data["name"]%></h3>
+    <p class="">Location: <%= data["address"]%></p>
+    <p class="">Price per night: <%= data["pricepernight"]%></p>
+    <p class="">Description: <%= data["description"]%></p>
   </div>
-
-  <div class="users">
-    <div class="users-inner">
-      <h3 class="space-title">Harry potters house</h3>
-      <p>Posted by: Harry Potter</p>
-      <p>Location: Hogwarts </p>
-      <p>Price per night: £100</p>
-      <p>Description: It's a famous place so book it</p>
-    </div>
-    <form action="#" method="post">
-      <input type="hidden" name="_method" value="delete" />
-      <input class="delete" type="submit" name="Delete" value="Delete space">
-    </form>
-    <form action="#" method="get">
-      <input type="hidden" name="_method" value="patch" />
-      <input class="edit" type="submit" name="Edit" value="Edit space">
-    </form>
-  </div>
+  <% end %>
 
   <div class="space-content">
     <h2 class="sub">Pending requests</h2>

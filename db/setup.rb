@@ -42,3 +42,6 @@ require 'pg'
 @db.exec("CREATE TABLE LOCATIONS(LocationID SERIAL PRIMARY KEY, OwnerID int, Address VARCHAR(255), Name VARCHAR(255), Description VARCHAR(511), PricePerNight MONEY, Availability int, FOREIGN KEY (OwnerID) REFERENCES Users(UserID));")
 #Creates table bookings
 @db.exec("CREATE TABLE BOOKINGS(BookingID SERIAL PRIMARY KEY, LodgerID int, LocationID int, StartDate DATE, EndDate DATE, FOREIGN KEY (LodgerID) REFERENCES USERS(UserID), FOREIGN KEY (LocationID) REFERENCES LOCATIONS(LocationID));")
+
+query = "INSERT INTO Users (useremail, password) VALUES('TESTUSERNEVERUSE', '5AF76621A5A239')"
+@db.exec(query)

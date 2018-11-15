@@ -52,15 +52,25 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/availability' do
-    if session[:startdate] == nil
-      @rooms = $db.getAllRooms("2019-1-1", "2024-1-1")
-    else
-      @rooms = $db.getAllRooms(session[:startdate], session[:enddate])
+    if (session[:startdate] == nil || session[:startdate] == "")
+      puts "aaaa"
+      session[:startdate] = "2000-1-1"
+      session[:enddate] = "2024-1-1"
     end
+    @rooms = $db.getAllRooms(session[:startdate], session[:enddate])
     if current_user_no_redirect
       erb :availability, :layout => :layout_user
     else
       erb :availability
+    end
+  end
+
+  post "/booking" do
+    @locationid = params["locationid"]
+    if $db.makeBooking(session[:user_id], @locationid, session[:startdate], session[:enddate])
+      erb :booking, :layout => :layout_user
+    else
+      erb :fail_failedbooking, :layout => :layout_user
     end
   end
 
@@ -125,12 +135,12 @@ class MakersBnB < Sinatra::Base
     end
   end
 
-  get '/booking' do
-    erb :booking, :layout => :layout_user
-  end
-
   get '/user_portal' do
-    erb :user_portal, :layout => :layout_user
+    if current_user
+      @currentbookings = $db.getUsersBookings(session[:user_id])
+      @userslistings = $db.getUsersLocations(session[:user_id])
+      erb :user_portal, :layout => :layout_user
+    end
   end
 
   post '/user_portal' do
