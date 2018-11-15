@@ -95,7 +95,7 @@ $ rackup
 $ open http://localhost:9292
 ```
 
-You are then free to sign up for an account, and then perform any of the actions detailed in the [functionality](functionality).
+You are then free to sign up for an account, and then perform any of the actions detailed in the [#functionality](functionality).
 
 ## <a name="contributors">Contributors</a>
 * [Liam](https://github.com/Coombszy)
