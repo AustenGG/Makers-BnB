@@ -11,7 +11,7 @@ We would like a web application that allows users to list spaces they have avail
 * [Rubocop v0.56.0](https://batsov.com/rubocop/)
 
 ## Jump To
-* [Functionality](functionality)
+* [Functionality](#functionality)
 * [Installation](#install)
 * [Usage](#usage)
 * [Contributors](#contributors)
