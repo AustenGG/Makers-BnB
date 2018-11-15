@@ -30,6 +30,15 @@ class Database
     end
   end
 
+  def getAllRooms(startdate, enddate)
+    #query = "SELECT * FROM locations WHERE locationid='SELECT locationid FROM bookings WHERE enddate < CAST('#{startdate}' AS DATE) or startdate > CAST('#{enddate}' AS DATE)'"
+    #query = "SELECT locations.* FROM locations, bookings WHERE bookings.enddate < CAST('#{startdate}' AS DATE) or bookings.startdate > CAST('#{enddate}' AS DATE)"
+    #query = "SELECT locations.* FROM locations, bookings WHERE bookings.enddate < '#{startdate}' or bookings.startdate > '#{enddate}'"
+    query = "SELECT locations.* FROM locations, bookings WHERE ('#{startdate}' NOT BETWEEN bookings.startdate AND bookings.enddate) AND ('#{enddate}' NOT BETWEEN bookings.startdate AND bookings.enddate) AND NOT ('#{startdate}' < bookings.startdate AND '#{enddate}' > bookings.enddate)"    
+    result = @connection.exec(query)
+    return result
+  end
+
   def createLocation(userid, locName, locDesc, locPPN, locAddress)
     if isNewLocationAvailiable(locName, locDesc, locAddress)
       query = "INSERT INTO locations (ownerid, address, name, description, pricepernight, availability) VALUES('#{userid}','#{locAddress}','#{locName}','#{locDesc}','#{locPPN}', '0')"

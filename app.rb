@@ -52,7 +52,18 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/availability' do
+    if session[:startdate] == nil
+      @rooms = $db.getAllRooms("2019-1-1", "2024-1-1")
+    else
+      @rooms = $db.getAllRooms(session[:startdate], session[:enddate])
+    end
     erb :availability, :layout => :layout_user
+  end
+
+  post '/availability' do
+    session[:startdate] = params[:start]
+    session[:enddate] = params[:end]
+    redirect '/availability'
   end
 
   post '/logout' do
