@@ -8,7 +8,7 @@ class MakersBnB < Sinatra::Base
   enable :sessions, :method_override
 
   get '/' do
-    erb :sign_up
+    erb :homepage
   end
 
   get '/signup' do
@@ -21,7 +21,7 @@ class MakersBnB < Sinatra::Base
 
   post '/signup' do
     $db.sign_up(params[:useremail], params[:password])
-    redirect '/signup'
+    redirect '/signin'
   end
 
   post '/login' do
@@ -37,8 +37,20 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/new' do
-    erb :new, :layout => :layout_user
+    if current_user
+      erb :new, :layout => :layout_user
+    end
   end
+
+  post '/new' do
+    address = "#{params[:adr1]},#{params[:adr2]},#{params[:adr3]},#{params[:postcode]}"
+    if $db.createLocation(session[:user_id], params[:name], params[:desc], params[:ppn], address)
+      redirect '/user_portal'
+    else
+      erb :fail_new
+    end
+  end
+
   get '/availability' do
     erb :availability, :layout => :layout_user
   end
