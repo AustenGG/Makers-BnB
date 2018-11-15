@@ -80,7 +80,6 @@ $ rvm 2.5.1
 $ gem install bundler
 $ bundle
 $ psql postgres
-$ createdb makers_bnb_development
 $ CREATE DATABASE "makersbnb";
 $ \q
 $ ruby db/setup.rb
