@@ -3,8 +3,6 @@
   <p>View Available spaces here!</p>
 </div>
 
-
-
  <div class="space-content">
   <form class="space-form" action="/availability" method="post">
     Start date:
@@ -20,7 +18,7 @@
      <p class="">Location: <%= data["address"]%></p>
      <p class="">Price per night: <%= data["pricepernight"]%></p>
      <p class="">Description: <%= data["description"]%></p>
-     <form action="/spaces/new">
+     <form action="/new">
 
      <input type="submit" name="book" value="Book space">
      </form>

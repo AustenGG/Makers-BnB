@@ -4,30 +4,83 @@
 </div>
 
 <div class="space-content">
-  <p class="sub">Current spaces listed</p>
+  <h2 class="sub">Current bookings</h2>
   <div class="users">
-    <h3 class="space-title">Harry potters house</h3>
-    <p class="">Posted by: Harry Potter</p>
-    <p class="">Location: Hogwarts </p>
-    <p class="">Price per night: £100</p>
-    <p class="">Description: It's a famous place so book it</p>
-    <form action="#">
+    <div class="users-inner">
+      <h3 class="space-title">Harry potters house</h3>
+      <p>Posted by: Harry Potter</p>
+      <p>Location: Hogwarts </p>
+      <p>Price per night: £100</p>
+      <p>Description: It's a famous place so book it</p>
+    </div>
+    <form action="/user_portal" method="post">
+      <input type="hidden" name="_method" value="delete" />
+      <input class="delete" type="submit" name="Delete" value="Delete booking">
+    </form>
+  </div>
 
+  <h2 class="sub">Current spaces listed</h2>
+  <div class="users">
+    <div class="users-inner">
+      <h3 class="space-title">Harry potters house</h3>
+      <p>Posted by: Harry Potter</p>
+      <p>Location: Hogwarts </p>
+      <p>Price per night: £100</p>
+      <p>Description: It's a famous place so book it</p>
+    </div>
+    <form action="/user_portal" method="post">
+      <input type="hidden" name="_method" value="delete" />
       <input class="delete" type="submit" name="Delete" value="Delete space">
+    </form>
+    <form action="#" method="get">
+      <input type="hidden" name="_method" value="patch" />
+      <input class="edit" type="submit" name="Edit" value="Edit space">
+    </form>
+  </div>
+
+  <div class="users">
+    <div class="users-inner">
+      <h3 class="space-title">Harry potters house</h3>
+      <p>Posted by: Harry Potter</p>
+      <p>Location: Hogwarts </p>
+      <p>Price per night: £100</p>
+      <p>Description: It's a famous place so book it</p>
+    </div>
+    <form action="#" method="post">
+      <input type="hidden" name="_method" value="delete" />
+      <input class="delete" type="submit" name="Delete" value="Delete space">
+    </form>
+    <form action="#" method="get">
+      <input type="hidden" name="_method" value="patch" />
       <input class="edit" type="submit" name="Edit" value="Edit space">
     </form>
   </div>
 
   <div class="space-content">
-    <p class="sub">Pending requests</p>
+    <h2 class="sub">Pending requests</h2>
     <div class="users">
-      <h3 class="space-title">Harry potters house</h3>
-      <p class="">Posted by: Harry Potter</p>
-      <p class="">Location: Hogwarts </p>
-      <p class="">Price per night: £100</p>
-      <p class="">Description: It's a famous place so book it</p>
-      <form action="#">
+      <div class="users-inner">
+        <h3 class="space-title">Harry potters house</h3>
+        <p>Posted by: Harry Potter</p>
+        <p>Location: Hogwarts </p>
+        <p>Price per night: £100</p>
+        <p>Description: It's a famous place so book it</p>
+      </div>
+      <form action="#" method="post">
+        <input class="accept" type="submit" name="Accept" value="Accept request">
+        <input class="decline" type="submit" name="Decline" value="Decline request">
+      </form>
+    </div>
 
+    <div class="users">
+      <div class="users-inner">
+        <h3 class="space-title">Harry potters house</h3>
+        <p>Posted by: Harry Potter</p>
+        <p>Location: Hogwarts </p>
+        <p>Price per night: £100</p>
+        <p>Description: It's a famous place so book it</p>
+      </div>
+      <form action="#" method="post">
         <input class="accept" type="submit" name="Accept" value="Accept request">
         <input class="decline" type="submit" name="Decline" value="Decline request">
       </form>
