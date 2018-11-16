@@ -1,6 +1,18 @@
 <center>
 <body>
-<h1>Booking Successful! We'll email you when the owner confirms your booking</h1>
+<h1>Booking Successful! We'll email you when the owner confirms your booking after payment</h1>
 <p>The email will contain your booking information</p>
+<form action="/booking" method="POST">
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_TYooMQauvdEDq54NiTphI7jx"
+    data-amount="999"
+    data-name="Stripe.com"
+    data-description="Example charge"
+    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+    data-locale="auto"
+    data-zip-code="true">
+  </script>
+</form>
 </body>
 </center>
