@@ -13,14 +13,15 @@
   </form>
 
   <% @rooms.each do |data|%>
-   <div class="space-list">
-     <h3 class="space-title"><%= data["name"]%></h3>
-     <p class="">Location: <%= data["address"]%></p>
-     <p class="">Price per night: <%= data["pricepernight"]%></p>
-     <p class="">Description: <%= data["description"]%></p>
-     <form action="/payments">
-     <input type="submit" name="book" value="Book space">
-     </form>
-      </div>
-      <% end %>
+  <div class="space-list">
+    <h3 class="space-title"><%= data["name"]%></h3>
+    <p class="">Location: <%= data["address"]%></p>
+    <p class="">Price per night: <%= data["pricepernight"]%></p>
+    <p class="">Description: <%= data["description"]%></p>
+    <form action="/booking" method="post">
+      <input type="hidden" id="locationid" name="locationid" value="<%= data["locationid"]%>">
+      <input type="submit" name="book" value="Book space">
+    </form>
+  </div>
+  <% end %>
 </div>

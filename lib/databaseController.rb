@@ -20,6 +20,23 @@ class Database
     end
   end
 
+  def makeBooking(userid, locationid, startdate, enddate)
+    insert = ("INSERT INTO bookings (lodgerid, locationid, startdate, enddate) VALUES ('#{userid}','#{locationid}','#{startdate}','#{enddate}')")
+    update = ("UPDATE locations SET availability=1 WHERE locationid='#{locationid}'")
+    begin
+      @connection.exec(insert)
+      @connection.exec(update)
+      return true
+    rescue => exception
+      return false
+    end
+  end
+
+  def getUsersBookings(userid)
+    query = ("SELECT bookings.*, users.useremail, locations.*  FROM bookings, locations, users WHERE (locations.availability='0' AND locations.ownerid='#{userid}') AND (bookings.lodgerid=users.userid) AND (bookings.locationid=locations.locationid) AND (bookings.enddate > NOW())")
+    result = @connection.exec(query)
+  end
+
   def DoesUserExist(userid, useremail)
     userdata1 = getUserDataID(userid)
     userdata2 = getUserData(useremail)
@@ -34,15 +51,28 @@ class Database
     #query = "SELECT * FROM locations WHERE locationid='SELECT locationid FROM bookings WHERE enddate < CAST('#{startdate}' AS DATE) or startdate > CAST('#{enddate}' AS DATE)'"
     #query = "SELECT locations.* FROM locations, bookings WHERE bookings.enddate < CAST('#{startdate}' AS DATE) or bookings.startdate > CAST('#{enddate}' AS DATE)"
     #query = "SELECT locations.* FROM locations, bookings WHERE bookings.enddate < '#{startdate}' or bookings.startdate > '#{enddate}'"
-    query = "SELECT locations.* FROM locations, bookings WHERE ('#{startdate}' NOT BETWEEN bookings.startdate AND bookings.enddate) AND ('#{enddate}' NOT BETWEEN bookings.startdate AND bookings.enddate) AND NOT ('#{startdate}' < bookings.startdate AND '#{enddate}' > bookings.enddate)"    
+    query = "SELECT locations.* FROM locations, bookings WHERE 
+    ('#{startdate}' NOT BETWEEN bookings.startdate AND bookings.enddate) AND ('#{enddate}' NOT BETWEEN bookings.startdate AND bookings.enddate)
+    AND (locations.availability='0')
+    AND NOT (('#{startdate}'=bookings.startdate)
+    AND ('#{enddate}'=bookings.enddate)
+    AND ('#{startdate}' < bookings.startdate AND '#{enddate}' > bookings.enddate)) "    
+    result = @connection.exec(query)
+    return result
+  end
+
+  def getUsersLocations(userid)
+    query = "SELECT * FROM locations WHERE ownerid='#{userid}'"    
     result = @connection.exec(query)
     return result
   end
 
   def createLocation(userid, locName, locDesc, locPPN, locAddress)
     if isNewLocationAvailiable(locName, locDesc, locAddress)
-      query = "INSERT INTO locations (ownerid, address, name, description, pricepernight, availability) VALUES('#{userid}','#{locAddress}','#{locName}','#{locDesc}','#{locPPN}', '0')"
-      @connection.exec(query)
+      query = "INSERT INTO locations (ownerid, address, name, description, pricepernight, availability) VALUES('#{userid}','#{locAddress}','#{locName}','#{locDesc}','#{locPPN}', '0') RETURNING locationid"
+      locationid = @connection.exec(query)[0]["locationid"]
+      insert = "INSERT INTO bookings (lodgerid, locationid, startdate, enddate) VALUES ('1','#{locationid}','2000-1-1','2000-1-2')"
+      @connection.exec(insert)
       true
     else
       false
